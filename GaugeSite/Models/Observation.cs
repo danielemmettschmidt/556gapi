@@ -12,6 +12,6 @@ namespace Gauge.Models
         public string ProductTitle  { get; set; }
         public string ProductSource  { get; set; }
         public string ScrapeUrl  { get; set; }
-        public string WriteDate  { get; set; }
+        public DateTime WriteDate  { get; set; }
     }
 }

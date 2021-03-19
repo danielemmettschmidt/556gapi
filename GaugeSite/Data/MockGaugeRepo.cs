@@ -3,7 +3,7 @@ using Gauge.Models;
 
 namespace Gauge.Data
 {
-    public class MockGaugeRepo : IGaugeRepo
+    public class MockGaugeRepo : IGaugeRepo   
     {
         private static Observation mockob = new Observation{ Id = -1
                                     , IsPPR = 0
@@ -17,15 +17,7 @@ namespace Gauge.Data
                                     };
 
 
-        public IEnumerable<Observation> GetAllObservations()
-        {
-            var observations = new List<Observation>
-            {
-                mockob, replaceID(mockob, -2), replaceID(mockob, -3)
-            };
 
-            return observations;
-        }
 
         private static Observation replaceID(Observation ob, int id)
         {
@@ -33,7 +25,19 @@ namespace Gauge.Data
             return ob;
         }
 
-        public Observation GetObservationByDate(int id)
+        public IEnumerable<Observation> GetObservations()
+        {
+            var observations = new List<Observation>
+            {
+                mockob, replaceID(mockob, -2), replaceID(mockob, -3)
+            };
+
+            return observations;
+
+            throw new System.NotImplementedException();
+        }
+
+        public Observation GetObservationByDate(string date)
         {
             return mockob;
         }

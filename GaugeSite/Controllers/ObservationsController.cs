@@ -11,18 +11,24 @@ namespace Gauge.Controllers
     public class ObservationsController : ControllerBase
     {
         private readonly MockGaugeRepo _repository = new MockGaugeRepo();
-
+        
         //GET apit/observations
-        public ActionResult <IEnumerable<Observation>> GetAllObservations()
+        [HttpGet]
+        public ActionResult <IEnumerable<Observation>> GetObservations()
         {
+            var commandItems = _repository.GetObservations();
+
+            return Ok(commandItems);
 
         }
+
 
         //GET api/observations/{date}
         [HttpGet("{date}")]
         public ActionResult <Observation> GetObservationsByDate(string date)
-        {
-
+        {            
+            var commandItems = _repository.GetObservationByDate(date);
+            return Ok(commandItems);
         }
     }
 }

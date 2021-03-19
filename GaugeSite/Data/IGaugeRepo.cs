@@ -5,8 +5,8 @@ namespace Gauge.Data
 {
         public interface IGaugeRepo
         {
-            IEnumerable<Observation> GetAppCommands();
-            Observation GetObservationByID(int id);
+            IEnumerable<Observation> GetObservations();
+            Observation GetObservationByDate(string date);
             
         }
 }
