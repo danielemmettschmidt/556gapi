@@ -10,7 +10,14 @@ namespace Gauge.Controllers
     [ApiController]
     public class ObservationsController : ControllerBase
     {
-        private readonly MockGaugeRepo _repository = new MockGaugeRepo();
+        private readonly IGaugeRepo _repository;
+
+        public ObservationsController(IGaugeRepo repository)
+        {
+            _repository = repository;
+        }
+
+        //private readonly MockGaugeRepo _repository = new MockGaugeRepo();
         
         //GET apit/observations
         [HttpGet]

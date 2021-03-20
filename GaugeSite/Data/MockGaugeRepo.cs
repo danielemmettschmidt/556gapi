@@ -16,9 +16,6 @@ namespace Gauge.Data
                                     , WriteDate = System.DateTime.Today
                                     };
 
-
-
-
         private static Observation replaceID(Observation ob, int id)
         {
             ob.Id = id;
