@@ -34,7 +34,7 @@ namespace Gauge.Controllers
         [HttpGet("{date}")]
         public ActionResult <Observation> GetObservationsByDate(string date)
         {            
-            var commandItems = _repository.GetObservationByDate(date);
+            var commandItems = _repository.GetObservationsByDate(date);
             return Ok(commandItems);
         }
     }

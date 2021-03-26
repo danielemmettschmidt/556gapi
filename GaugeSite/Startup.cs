@@ -32,7 +32,7 @@ namespace GaugeSite
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddScoped<IGaugeRepo, MockGaugeRepo>();
+            services.AddScoped<IGaugeRepo, SQLGaugeRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

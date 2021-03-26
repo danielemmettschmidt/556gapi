@@ -34,9 +34,14 @@ namespace Gauge.Data
             throw new System.NotImplementedException();
         }
 
-        public Observation GetObservationByDate(string date)
+        public IEnumerable<Observation> GetObservationsByDate(string date)
         {
-            return mockob;
+            var observations = new List<Observation>
+            {
+                mockob
+            };
+
+            return observations;
         }
     }
 }
