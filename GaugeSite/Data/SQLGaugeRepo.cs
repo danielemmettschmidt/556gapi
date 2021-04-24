@@ -85,11 +85,11 @@ namespace Gauge.Data
             _context = context;
         }
 
-        public IEnumerable<Observation> GetObservationsByDate(string date)
+        public IEnumerable<Observation> GetObservationsByDate(string dateString)
         {
-            CheckDates checkdates = new CheckDates(date);
+            CheckDates checkdates = new CheckDates(dateString);
 
-            return _context.Observations.Where<Observation>(o => o.WhenObserved.Date >= checkdates.Min && o.WhenObserved.Date >= checkdates.Max);
+            return _context.Observations.Where<Observation>(o => o.WhenObserved.Date >= checkdates.Min && o.WhenObserved.Date <= checkdates.Max);
 
             throw new System.NotImplementedException();
         }
