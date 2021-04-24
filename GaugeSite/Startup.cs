@@ -23,7 +23,7 @@ namespace GaugeSite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<GaugeContext>(opt => opt.UseSqlServer
-                (Configuration.GetConnectionString("BackupGaugeConnection")));
+                (Configuration.GetConnectionString("GaugeConnection")));
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

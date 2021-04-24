@@ -89,7 +89,7 @@ namespace Gauge.Data
         {
             CheckDates checkdates = new CheckDates(date);
 
-            return _context.Observations.Where<Observation>(o => o.WriteDate.Date >= checkdates.Min && o.WriteDate.Date >= checkdates.Max);
+            return _context.Observations.Where<Observation>(o => o.WhenObserved.Date >= checkdates.Min && o.WhenObserved.Date >= checkdates.Max);
 
             throw new System.NotImplementedException();
         }
@@ -97,7 +97,7 @@ namespace Gauge.Data
         public IEnumerable<Observation> GetObservations()
         {
             
-            return _context.Observations.Where<Observation>(o => o.WriteDate.Date == DateTime.Today.AddDays(0 - 1));
+            return _context.Observations.Where<Observation>(o => o.WhenObserved.Date == DateTime.Today.AddDays(0 - 1));
 
             throw new System.NotImplementedException();
 

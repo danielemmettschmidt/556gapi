@@ -5,7 +5,7 @@ namespace Gauge.Data
 {
     public class MockGaugeRepo : IGaugeRepo   
     {
-        private static Observation mockob = new Observation{ Id = -1
+        private static Observation mockob = new Observation{ ObsId = -1
                                     , IsPPR = 0
                                     , Price = -1
                                     , Rounds = -1
@@ -13,12 +13,12 @@ namespace Gauge.Data
                                     , ProductTitle = "MOCK"
                                     , ProductSource = "MOCK"
                                     , ScrapeUrl = "MOCK"
-                                    , WriteDate = System.DateTime.Today
+                                    , WhenObserved = System.DateTime.Today
                                     };
 
         private static Observation replaceID(Observation ob, int id)
         {
-            ob.Id = id;
+            ob.ObsId = id;
             return ob;
         }
 
