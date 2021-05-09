@@ -6,7 +6,7 @@ namespace Gauge.Models
     public class Observation
     {        
         [Key]
-        public int ObsId { get; set; }
+        public long ObsId { get; set; }
 
         public byte IsPPR { get; set; }
 
@@ -26,5 +26,7 @@ namespace Gauge.Models
         public string ScrapeUrl  { get; set; }
 
         public DateTime WhenObserved  { get; set; }
+
+        public long BackupID  { get; set; }
     }
 }
