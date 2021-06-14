@@ -90,17 +90,11 @@ namespace Gauge.Data
             CheckDates checkdates = new CheckDates(dateString);
 
             return _context.Observations.Where<Observation>(o => o.WhenObserved.Date >= checkdates.Min && o.WhenObserved.Date <= checkdates.Max);
-
-            throw new System.NotImplementedException();
         }
 
         public IEnumerable<Observation> GetObservations()
         {
-            
             return _context.Observations.Where<Observation>(o => o.WhenObserved.Date == DateTime.Today.AddDays(0 - 1));
-
-            throw new System.NotImplementedException();
-
         }
     }
 }
