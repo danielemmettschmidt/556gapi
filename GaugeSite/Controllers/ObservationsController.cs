@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using AutoMapper;
 using Gauge.Data;
+using Gauge.DTOs;
 using Gauge.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,31 +13,33 @@ namespace Gauge.Controllers
     public class ObservationsController : ControllerBase
     {
         private readonly IGaugeRepo _repository;
+        private readonly IMapper _mapper;
 
-        public ObservationsController(IGaugeRepo repository)
+        public ObservationsController(IGaugeRepo repository, IMapper mapper)
         {
-            _repository = repository;
+            this._repository = repository;
+            this._mapper = mapper;
         }
 
         //private readonly MockGaugeRepo _repository = new MockGaugeRepo();
         
         //GET apit/observations
         [HttpGet]
-        public ActionResult <IEnumerable<Observation>> GetObservations()
+        public ActionResult <IEnumerable<ObservationRead>> GetObservations()
         {
-            var commandItems = _repository.GetObservations();
+            var observationItems = _repository.GetObservations();
 
-            return Ok(commandItems);
+             return Ok(this._mapper.Map<IEnumerable<ObservationRead>>(observationItems));
 
         }
 
 
         //GET api/observations/{date}
         [HttpGet("{date}")]
-        public ActionResult <Observation> GetObservationsByDate(string date)
+        public ActionResult <ObservationRead> GetObservationsByDate(string date)
         {            
-            var commandItems = _repository.GetObservationsByDate(date);
-            return Ok(commandItems);
+            var observationItems = _repository.GetObservationsByDate(date);
+            return Ok(this._mapper.Map<IEnumerable<ObservationRead>>(observationItems));
         }
     }
 }

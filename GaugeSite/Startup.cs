@@ -33,6 +33,8 @@ namespace GaugeSite
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddAutoMapper(System.AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddScoped<IGaugeRepo, SQLGaugeRepo>();
         }
 
