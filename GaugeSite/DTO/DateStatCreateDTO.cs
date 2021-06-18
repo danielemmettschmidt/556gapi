@@ -1,13 +1,11 @@
+
+
 using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace Gauge.Models
+namespace  Gauge.DTOs
 {
-    public class DateStat
-    {        
-        [Key]
-        public int DateStatId { get; set; }
-
+    public class DateStatCreateDTO
+    {
         public DateTime Date { get; set; }
 
         public double PPRMax { get; set; }

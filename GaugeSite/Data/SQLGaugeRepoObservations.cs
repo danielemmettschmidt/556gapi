@@ -22,5 +22,20 @@ namespace Gauge.Data
 
             throw new NotImplementedException();
         }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
+        public void CreateDateStat(DateStat dateStat)
+        {
+            if(dateStat == null)
+            {
+                throw new ArgumentNullException(nameof(dateStat));
+            }
+
+            _context.DateStats.Add(dateStat);
+        }
     }
 }
