@@ -43,5 +43,25 @@ namespace Gauge.Data
 
             return observations;
         }
+
+        IEnumerable<DateStat> IGaugeRepo.GetDateStats()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerable<DateStat> IGaugeRepo.GetDateStatsByDate(string date)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerable<Observation> IGaugeRepo.GetObservations()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        IEnumerable<Observation> IGaugeRepo.GetObservationsByDate(string date)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

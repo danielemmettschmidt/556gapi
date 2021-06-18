@@ -3,14 +3,16 @@ using System;
 using Gauge.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GaugeSite.Migrations
 {
     [DbContext(typeof(GaugeContext))]
-    partial class GaugeContextModelSnapshot : ModelSnapshot
+    [Migration("20210618200148_MySQLGaugeMigration06-18-21")]
+    partial class MySQLGaugeMigration061821
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

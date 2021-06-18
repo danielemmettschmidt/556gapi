@@ -8,14 +8,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace Gauge.Controllers
 {
     //api/observations
-    [Route("api/observations")]
+    [Route("api/datestats")]
     [ApiController]
-    public class ObservationsController : ControllerBase
+    public class DateStatsController : ControllerBase
     {
         private readonly IGaugeRepo _repository;
         private readonly IMapper _mapper;
 
-        public ObservationsController(IGaugeRepo repository, IMapper mapper)
+        public DateStatsController(IGaugeRepo repository, IMapper mapper)
         {
             this._repository = repository;
             this._mapper = mapper;
@@ -23,22 +23,22 @@ namespace Gauge.Controllers
 
         //private readonly MockGaugeRepo _repository = new MockGaugeRepo();
         
-        //GET api/observations
+        //GET api/datestats
         [HttpGet]
-        public ActionResult <IEnumerable<ObservationRead>> GetObservations()
+        public ActionResult <IEnumerable<ObservationRead>> GetDateStats()
         {
-            var observationItems = _repository.GetObservations();
+            var observationItems = _repository.GetDateStats();
 
              return Ok(this._mapper.Map<IEnumerable<ObservationRead>>(observationItems));
 
         }
 
 
-        //GET api/observations/{date}
+        //GET api/datestats/{date}
         [HttpGet("{date}")]
-        public ActionResult <ObservationRead> GetObservationsByDate(string date)
+        public ActionResult <ObservationRead> GetDateStatsByDate(string date)
         {            
-            var observationItems = _repository.GetObservationsByDate(date);
+            var observationItems = _repository.GetDateStatsByDate(date);
             return Ok(this._mapper.Map<IEnumerable<ObservationRead>>(observationItems));
         }
     }

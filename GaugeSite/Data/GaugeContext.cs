@@ -12,6 +12,7 @@ namespace Gauge.Data
 
         public DbSet<Observation> Observations { get; set; }
 
+        public DbSet<DateStat> DateStats { get; set; }
         
     }
 }
