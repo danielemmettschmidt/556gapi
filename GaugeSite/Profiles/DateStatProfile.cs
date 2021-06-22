@@ -9,6 +9,7 @@ namespace Gauge.Profiles
         public DateStatProfile()
         {            
             CreateMap<DateStat, DateStatRead>();
+            CreateMap<DateStatCreateDTO, DateStat>();
         }   
     }
 }

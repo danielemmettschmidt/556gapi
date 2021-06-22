@@ -25,7 +25,7 @@ namespace Gauge.Controllers
         
         //GET api/datestats
         [HttpGet]
-        public ActionResult <IEnumerable<ObservationRead>> GetDateStats()
+        public ActionResult <IEnumerable<DateStat>> GetDateStats()
         {
             var observationItems = _repository.GetDateStats();
 
@@ -36,10 +36,19 @@ namespace Gauge.Controllers
 
         //GET api/datestats/{date}
         [HttpGet("{date}")]
-        public ActionResult <ObservationRead> GetDateStatsByDate(string date)
+        public ActionResult <DateStat> GetDateStatsByDate(string date)
         {            
             var observationItems = _repository.GetDateStatsByDate(date);
             return Ok(this._mapper.Map<IEnumerable<ObservationRead>>(observationItems));
+        }
+
+        //POST api/datestats
+        [HttpPost]
+        public ActionResult <DateStat> CreateDateStat(DateStatCreateDTO dateStatCreateDTO)
+        {
+            var datestatModel = _mapper.Map<DateStat>(dateStatCreateDTO);
+
+            this._repository.CreateDateStat(datestatModel)
         }
     }
 }

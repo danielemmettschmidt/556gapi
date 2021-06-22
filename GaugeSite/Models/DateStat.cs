@@ -8,16 +8,22 @@ namespace Gauge.Models
         [Key]
         public int DateStatId { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
+        [Required]
         public double PPRMax { get; set; }
       
+        [Required]
         public double PPRMin { get; set; }
 
+        [Required]
         public double PPRAverage { get; set; }
 
+        [Required]
         public double PPRMedian { get; set; }
 
+        [Required]
         public double PPRMode { get; set; }
 
         public double? PriceMax { get; set; }
@@ -40,6 +46,7 @@ namespace Gauge.Models
 
         public double? RoundsMode { get; set; }
 
+        [Required]
         public bool IsCarriedOverFromPriorDay { get; set; }
     }
 }
